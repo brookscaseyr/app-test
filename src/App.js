@@ -15,7 +15,10 @@ const App = () => (
      Demo
    </h1>
    <Formik
-     initialValues={{ email: '' }}
+     initialValues={{
+       email: '',
+       fullName: ''
+     }}
      onSubmit={(values, { setSubmitting }) => {
        setTimeout(() => {
          alert(JSON.stringify(values, null, 2));
@@ -25,6 +28,8 @@ const App = () => (
      validationSchema={Yup.object().shape({
        email: Yup.string()
          .email()
+         .required('Required'),
+       name: Yup.string()
          .required('Required'),
      })}
    >
@@ -59,6 +64,24 @@ const App = () => (
            {errors.email && touched.email && (
              <div className="input-feedback">{errors.email}</div>
            )}
+           <label htmlFor="fullName" style={{display: 'block'}}>
+             Full Name
+           </label>
+           <input
+             id="fullName"
+             placeholder="Enter your full name"
+             type="text"
+             value={values.fullName}
+             onChange={handleChange}
+             onBlur={handleBlur}
+             className={
+               errors.fullName && touched.fullName ? 'text-input error' : 'text-input'
+             }
+           />
+           {errors.fullName && touched.fullName && (
+             <div className="input-feedback">{errors.fullName}</div>
+           )}
+           <br></br>
            <button
              type="button"
              className="outline"
