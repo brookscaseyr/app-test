@@ -17,7 +17,8 @@ const App = () => (
    <Formik
      initialValues={{
        email: '',
-       fullName: ''
+       fullName: '',
+       chiefComplaint: 'Select'
      }}
      onSubmit={(values, { setSubmitting }) => {
        setTimeout(() => {
@@ -81,6 +82,24 @@ const App = () => (
            {errors.fullName && touched.fullName && (
              <div className="input-feedback">{errors.fullName}</div>
            )}
+           <label htmlFor="chiefComplaint" style={{display: 'block'}}>
+             Chief Complaint
+           </label>
+           <select
+              name="chiefComplaint"
+              value={values.chiefComplaint}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              style={{display: 'block'}}
+              className={errors.chiefComplaint && touched.chiefComplaint ? 'text-input error' : 'text-input'
+             }
+           >
+              <option value="" label="Select" />
+              <option value="Chief Complaint 1" label="Chief Complaint 1" />
+              <option value="Chief Complaint 1" label="Chief Complaint 2" />
+              <option value="Chief Complaint 1" label="Chief Complaint 2" />
+           </select>
+
            <br></br>
            <button
              type="button"
