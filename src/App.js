@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Formik } from 'formik';
+import { Formik, Field, Form} from 'formik';
 import * as Yup from 'yup';
 import { MoreResources, DisplayFormikState } from './helper';
 const App = () => (
@@ -18,7 +18,8 @@ const App = () => (
      initialValues={{
        email: '',
        fullName: '',
-       chiefComplaint: 'Select'
+       chiefComplaint: 'Select',
+       hpi: ''
      }}
      onSubmit={(values, { setSubmitting }) => {
        setTimeout(() => {
@@ -96,9 +97,27 @@ const App = () => (
            >
               <option value="" label="Select" />
               <option value="Chief Complaint 1" label="Chief Complaint 1" />
-              <option value="Chief Complaint 1" label="Chief Complaint 2" />
-              <option value="Chief Complaint 1" label="Chief Complaint 2" />
+              <option value="Chief Complaint 2" label="Chief Complaint 2" />
+              <option value="Chief Complaint 3" label="Chief Complaint 3" />
            </select>
+
+           <label htmlFor="hpi" style={{display: 'block'}}>
+              History of Present Illness
+           </label>
+           <input
+             id="hpi"
+             placeholder="History of present illness"
+             type="text"
+             value={values.hpi}
+             onChange={handleChange}
+             onBlur={handleBlur}
+             className={
+               errors.hpi && touched.hpi ? 'text-input error': 'text-input'
+             }
+          />
+          {errors.hpi && touched.hpi && (
+            <div className="input-feedback">{errors.hpi}</div>
+          )}
 
            <br></br>
            <button
