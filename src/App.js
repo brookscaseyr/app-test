@@ -84,7 +84,7 @@ const App = () => (
              <div className="input-feedback">{errors.fullName}</div>
            )}
            <label htmlFor="chiefComplaint" style={{display: 'block'}}>
-             Chief Complaint
+             Chief Complaint - Google checklist
            </label>
            <select
               name="chiefComplaint"
@@ -96,9 +96,38 @@ const App = () => (
              }
            >
               <option value="" label="Select" />
-              <option value="Chief Complaint 1" label="Chief Complaint 1" />
-              <option value="Chief Complaint 2" label="Chief Complaint 2" />
-              <option value="Chief Complaint 3" label="Chief Complaint 3" />
+              <option value="Chief Complaint 1" label="Fatigue" />
+              <option value="Chief Complaint 2" label="Lethargy" />
+              <option value="Chief Complaint 3" label="Feeling cold" />
+              <option value="Chief Complaint 4" label="Hair loss or dryness" />
+              <option value="Chief Complaint 5" label="Brittle nails" />
+              <option value="Chief Complaint 6" label="Constipation" />
+              <option value="Chief Complaint 7" label="Dry skin" />
+              <option value="Chief Complaint 8" label="Enlarged thyroid" />
+              <option value="Chief Complaint 9" label="Irritability" />
+              <option value="Chief Complaint 10" label="Sexual dysfunction" />
+              <option value="Chief Complaint 11" label="Slow heart rate" />
+              <option value="Chief Complaint 12" label="Sluggishness" />
+              <option value="Chief Complaint 13" label="Weight gain" />
+              <option value="Chief Complaint 14" label="Irregular uterine bleeding" />
+           </select>
+
+           <label htmlFor="chiefComplaint2" style={{display: 'block'}}>
+             Chief Complaint - Up to Date checklist
+           </label>
+           <select
+              name="chiefComplaint2"
+              value={values.chiefComplaint}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              style={{display: 'block'}}
+              className={errors.chiefComplaint && touched.chiefComplaint ? 'text-input error' : 'text-input'
+             }
+           >
+              <option value="" label="Select" />
+              <option value="Chief Complaint 1" label="1" />
+              <option value="Chief Complaint 2" label="2" />
+              <option value="Chief Complaint 3" label="3" />
            </select>
 
            <label htmlFor="hpi" style={{display: 'block'}}>
